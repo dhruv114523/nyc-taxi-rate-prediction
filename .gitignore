@@ -1,0 +1,42 @@
+# Data files
+*.csv
+train.csv
+test.csv
+sample_train.csv
+sample_submission.csv
+submission.csv
+
+# Model files
+*.pkl
+taxi_fare_model.pkl
+
+# EDA and temporary files
+EDA.py
+temp.py
+sample_dataset.py
+
+# Documentation
+*.rtf
+GCP-Coupons-Instructions.rtf
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
