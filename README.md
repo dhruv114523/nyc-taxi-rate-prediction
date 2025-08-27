@@ -6,6 +6,9 @@ A machine learning model to predict New York City taxi fares using RandomForest 
 
 This project builds a taxi fare prediction model using historical NYC taxi ride data. The model achieves a Mean Absolute Error (MAE) of approximately $2.19 on validation data, providing accurate fare estimates for taxi rides.
 
+## Dataset
+[Dataset](https://www.kaggle.com/competitions/new-york-city-taxi-fare-prediction/data)
+
 ## Features
 
 - **Distance Calculations**: Haversine distance, Manhattan distance, and bearing between pickup and dropoff locations
