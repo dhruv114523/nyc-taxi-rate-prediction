@@ -18,7 +18,7 @@ This project builds a taxi fare prediction model using historical NYC taxi ride 
 
 ## Model Architecture
 
-- **Algorithm**: RandomForest Regressor
+- **Algorithm**: XGBoost
 - **Key Parameters**: 
   - max_depth: 10
   - n_estimators: 100
