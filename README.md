@@ -1,6 +1,6 @@
 # NYC Taxi Fare Prediction
 
-A machine learning model to predict New York City taxi fares using RandomForest regression with advanced feature engineering.
+A machine learning model to predict New York City taxi fares using XGBoost regression with advanced feature engineering.
 
 ## Overview
 
@@ -48,7 +48,7 @@ python main.py
 The script will:
 1. Load and preprocess the training data
 2. Engineer features with distance calculations
-3. Train the RandomForest model
+3. Train the XGBoost model
 4. Generate predictions for test data
 5. Save results to submission.csv
 
