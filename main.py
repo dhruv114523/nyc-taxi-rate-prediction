@@ -40,7 +40,7 @@ print(f"Read file - {time.time() - start_time:.2f} seconds")
 
 df = df[
     (df["pickup_longitude"].between(-74.3, -73.6)) &
-    (df["pickup_latitude"].between(40.4, 41.0))
+    (df["pickup_latitude"].between(40.4, 41.0)) #NYC bounding boxes
 ]
 
 
@@ -167,7 +167,7 @@ model = XGBRegressor(
     learning_rate=0.05,
     subsample=0.8,
     colsample_bytree=0.8,
-    tree_method="hist",   # FAST for millions of rows
+    tree_method="hist",
     objective="reg:squarederror",
     random_state=123,
     n_jobs=4
@@ -191,6 +191,16 @@ print(mean_absolute_error(y_train_np, y_hat))
 y_pred = model.predict(X_val_np)
 print("fit on validation data")
 print(mean_absolute_error(y_val_np, y_pred))
+
+from sklearn.metrics import r2_score
+
+# R² on training data
+r2_train = r2_score(y_train_np, y_hat)
+print(f"R² on training data: {r2_train:.4f}")
+
+# R² on validation data
+r2_val = r2_score(y_val_np, y_pred)
+print(f"R² on validation data: {r2_val:.4f}")
 
 import joblib
 joblib.dump(model, "model.joblib")
