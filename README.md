@@ -27,8 +27,8 @@ This project builds a taxi fare prediction model using historical NYC taxi ride 
 
 ## Performance
 
-- **Training MAE**: 2.18
-- **Validation MAE**: 2.19
+- **Training MAE**: 1.94
+- **Validation MAE**: 2.07
 - **Dataset Size**: 55+ million taxi rides
 
 ## Features Used

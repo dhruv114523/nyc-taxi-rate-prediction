@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 import time
+from xgboost import XGBRegressor
 
 pd.set_option('display.max_columns', None)
 
@@ -36,6 +37,12 @@ start_time = time.time()
 print("Reading File")
 df = pd.read_csv("train.csv")
 print(f"Read file - {time.time() - start_time:.2f} seconds")
+
+df = df[
+    (df["pickup_longitude"].between(-74.3, -73.6)) &
+    (df["pickup_latitude"].between(40.4, 41.0))
+]
+
 
 start_time = time.time()
 print("converting data types")
@@ -153,17 +160,19 @@ import gc; gc.collect()
 
 start_time = time.time()
 print("model selection")
-model = RandomForestRegressor(
-    n_estimators=200,
-    max_depth=12,
-    min_samples_leaf=2,      # keep some capacity
-    max_features=0.5,        # or "sqrt" to cut split cost
-    bootstrap=True,
-    max_samples=300_000,     # 200k–300k sweet spot
-    criterion="squared_error",
-    n_jobs=4,
-    random_state=123
+
+model = XGBRegressor(
+    n_estimators=600,
+    max_depth=8,
+    learning_rate=0.05,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    tree_method="hist",   # FAST for millions of rows
+    objective="reg:squarederror",
+    random_state=123,
+    n_jobs=4
 )
+
 print(f"Done - {time.time() - start_time:.2f} seconds")
 
 start_time = time.time()
